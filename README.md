@@ -1,26 +1,30 @@
 # InternBoard: Responsive Internship Board
 
-A clean, responsive internship listing website built for the **EdVyro Full-Stack Development Internship, Task 02**. Users can browse internships, search them, and filter by domain.
+A responsive internship listing website I built for Task 02 of the EdVyro Full-Stack Development Internship. You can browse internships, search them, and filter them by domain. It works on mobile, tablet and desktop.
+
+**Live demo:** https://debasissamui913-debug.github.io/internship-board/
 
 ## Features
-- Internship cards showing role, company, domain, location, duration, work mode, description and an Apply button
-- Cards rendered dynamically from a JavaScript array (no hard-coded cards in HTML)
-- Live search by title, company or domain
-- Domain dropdown (built automatically from the data) that works together with search
+
+- Internship cards with role, company, domain, location, duration, work mode and a short description
+- Apply button on every card
+- Cards are created with JavaScript from an array, not written by hand in HTML
+- Search by title, company or domain (results change while typing)
+- Domain dropdown filter that works together with search
 - "Clear filters" button
 - Empty state: "No internships found. Try another search or filter."
-- Error state: invalid records are skipped, and a friendly message appears if the data cannot be loaded
-- Responsive header with a mobile menu button
-- Accessible, keyboard-friendly design
+- Error state: broken records are skipped, and a friendly message shows if the data cannot load
+- Header with a menu button on small screens
+- Contact section
 
 ## Technologies Used
-- HTML5
-- CSS3 (custom properties, Flexbox, Grid, media queries)
-- Vanilla JavaScript (ES6)
 
-No frameworks or libraries.
+- HTML5
+- CSS3 (Flexbox, Grid, media queries, CSS variables)
+- Vanilla JavaScript (no frameworks or libraries)
 
 ## Project Structure
+
 ```
 internship-board/
 ├── index.html
@@ -31,60 +35,74 @@ internship-board/
 └── README.md
 ```
 
-### Why `internships.js` instead of `internships.json`?
-Browsers block `fetch()` on JSON files when a page is opened directly from disk (`file://`), so a JSON file would need a local server just to run. To keep the project beginner-friendly and runnable by double-clicking `index.html`, the data lives in a plain JavaScript array in `data/internships.js`. Switching to JSON later only requires replacing it with a `fetch()` call.
+### Why `internships.js` and not `internships.json`?
+
+Browsers block `fetch()` for JSON files when a page is opened directly from a folder, so the site would not work by just double clicking `index.html`. To keep it simple, I kept the data in a JavaScript file. It can be changed to JSON later if the site runs on a server.
 
 ## How to Run Locally
-1. Download or clone the project.
-2. Open the `internship-board` folder in VS Code.
-3. Double-click `index.html`, or right-click it in VS Code and choose **Open with Live Server** (optional extension).
+
+1. Download or clone this repository.
+2. Open the folder in VS Code.
+3. Open `index.html` in your browser, or use the Live Server extension.
+
+No installation is needed.
 
 ## Accessibility Features
-- Semantic elements: `header`, `nav`, `main`, `section`, `article`, `footer`
+
+- Semantic tags: `header`, `nav`, `main`, `section`, `article`, `footer`
 - "Skip to main content" link
-- Every input has a visible `<label>`
-- Native `<button>` and `<a>` elements, so everything works with the keyboard
-- Clear visible focus outline on all interactive elements
-- Apply links have descriptive labels (role, company, opens in new tab)
-- ARIA used only where needed: `aria-expanded`/`aria-controls` on the menu button, `aria-live` on the result count, `role="alert"` on errors
-- Good color contrast and `prefers-reduced-motion` support
+- Every input has a label
+- Buttons and links work with the keyboard
+- Focus outline is clearly visible
+- Apply buttons have clear labels that mention the role and company
+- ARIA is used only where needed: menu button (`aria-expanded`), result count (`aria-live`) and error message (`role="alert"`)
+- Text has enough contrast with the background
+- Animations are reduced for users who prefer less motion
 
 ## Responsive Design Details
+
 | Screen | Breakpoint | Layout |
 |---|---|---|
-| Mobile | under 600px | 1 column, menu button, stacked filters |
-| Tablet | 600px and up | 2 columns, filters in one row |
-| Desktop | 900px and up | 3 columns, full horizontal navigation |
+| Mobile | below 600px | 1 column, menu button, stacked filters |
+| Tablet | 600px and above | 2 columns, search and filter in one row |
+| Desktop | 900px and above | 3 columns, full navigation bar |
 
 ## Screenshots
-Add your screenshots to the `screenshots/` folder and update the paths below.
 
-| View | Screenshot |
-|---|---|
-| Desktop | ![Desktop view](screenshots/desktop.png) |
-| Tablet | ![Tablet view](screenshots/tablet.png) |
-| Mobile | ![Mobile view](screenshots/mobile.png) |
-| Empty state | ![Empty state](screenshots/empty-state.png) |
+**Desktop**
 
-**How to take them:** open the site in Chrome, press `F12`, click the device toolbar icon (`Ctrl+Shift+M`), choose a size (Responsive: 1280px, 768px, 375px), then press `Ctrl+Shift+P`, type "screenshot" and pick **Capture screenshot**. For the empty state, search for `zzzz` first.
+![Desktop view](screenshots/desktop.png)
 
-## Upload to GitHub
-```bash
-cd internship-board
-git init
-git add .
-git commit -m "Add responsive internship board"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/internship-board.git
-git push -u origin main
-```
-Create the empty repository `internship-board` on github.com first (no README/license).
+**Tablet**
 
-## Deploy with GitHub Pages
-1. Open your repository on GitHub, then **Settings → Pages**.
-2. Under **Build and deployment**, set Source to **Deploy from a branch**.
-3. Choose branch **main** and folder **/ (root)**, then click **Save**.
-4. After 1 to 2 minutes your site is live at `https://YOUR-USERNAME.github.io/internship-board/`.
+![Tablet view](screenshots/tablet.png)
 
-## Author
-YOUR NAME, EdVyro Full-Stack Development Internship
+**Mobile**
+
+![Mobile view](screenshots/mobile.png)
+
+**No results**
+
+![Empty state](screenshots/empty-state.png)
+
+## GitHub and Deployment
+
+1. Create a public repository named `internship-board` on GitHub.
+2. Upload all the project files to the repository.
+3. Go to **Settings → Pages**.
+4. Under **Source**, choose **Deploy from a branch**, select the `main` branch and the `/ (root)` folder, then click **Save**.
+5. After a minute or two, the site is live at `https://debasissamui913-debug.github.io/internship-board/`.
+
+## Things I Want to Improve
+
+- Add a details page or popup for each internship
+- Add sorting (for example by duration)
+- Save favourite internships
+- Connect it to a real API
+
+## Contact
+
+- Name: Debasis Samui
+- Email: debasissamui913@gmail.com
+- Location: Kolkata, West Bengal, India
+- GitHub: https://github.com/debasissamui913-debug
